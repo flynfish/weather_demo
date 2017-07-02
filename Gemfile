@@ -28,6 +28,8 @@ gem 'sidekiq', '~> 5.0'
 
 gem "react_on_rails", "8.0.0"
 
+gem 'rack-cors'
+
 # Use Clockwork for recurring background tasks without needing cron
 # gem 'clockwork', '~> 2.0'
 
@@ -78,3 +80,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
+
+gem 'mini_racer', platforms: :ruby
+gem 'webpacker_lite'

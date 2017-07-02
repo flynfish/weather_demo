@@ -23,9 +23,18 @@ services:
     depends_on:
       - 'postgres'
       - 'redis'
+    image: web
     build: .
     ports:
       - '3000:3000'
+    volumes:
+      - '.:/app'
+    env_file:
+      - '.env'
+
+  client:
+    image: web
+    command: sh -c 'rm -rf public/webpack/development/* || true && cd client && bundle exec rake react_on_rails:locale && yarn run build:development'
     volumes:
       - '.:/app'
     env_file:

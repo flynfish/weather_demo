@@ -1,25 +1,21 @@
 # README
 
-To run locally, ensure you have docker installed:
+### To run locally:
 
-[Download Here](https://www.docker.com/community-edition#download)
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Clone repo:
+```
+$ git clone https://github.com/flynfish/weather_demo.git
+$ cd weather_demo
+```
+- [Install Docker](https://www.docker.com/community-edition#download) if you don't have it installed
+- From weather_demo folder run:
+```
+$ docker-compose up --build
+```
+- Open new terminal window and from weather_demo folder run:
+```
+$ docker-compose exec web rails db:reset
+$ docker-compose exec web rails db:migrate
+$ docker-compose exec bundle && yarn
+```
+- visit http://localhost:3000

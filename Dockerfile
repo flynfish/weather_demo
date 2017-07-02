@@ -1,6 +1,14 @@
-FROM artwishlist/alpine-3.6-ruby-2.4.1
+FROM teradiot/alpine-ruby-libv8
 
-RUN apk update && apk add build-base nodejs postgresql-dev yarn
+ENV PATH /root/.yarn/bin:$PATH
+
+RUN apk update \
+  && apk add curl bash binutils tar build-base nodejs postgresql-dev git \
+  && rm -rf /var/cache/apk/* \
+  && /bin/bash \
+  && touch ~/.bashrc \
+  && curl -o- -L https://yarnpkg.com/install.sh | bash \
+  && apk del git curl tar binutils
 
 RUN mkdir /app
 WORKDIR /app

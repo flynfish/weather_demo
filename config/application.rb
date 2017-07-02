@@ -60,6 +60,13 @@ module WeatherDemo
     origins = ENV['ACTION_CABLE_ALLOWED_REQUEST_ORIGINS'].split(',')
     origins.map! { |url| /#{url}/ }
     config.action_cable.allowed_request_origins = origins
+
+    config.middleware.insert_before 0, Rack::Cors, :debug => true, :logger => (-> { Rails.logger }) do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
   end
 end
 

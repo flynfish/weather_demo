@@ -81,3 +81,25 @@ img {
     color: $brand-danger;
     font-size: $font-size-small;
 }
+
+.daily-forecasts {
+  display: flex;
+  padding-left: 0;
+  padding-bottom: 20px;
+
+  li {
+    display: inline-block;
+    list-style: none;
+    margin: auto;
+    text-align: center;
+
+    .day-of-week {
+      margin-bottom: 2px;
+    }
+
+    .date {
+      margin-top: 0;
+    }
+
+  }
+}
