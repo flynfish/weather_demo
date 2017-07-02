@@ -61,7 +61,7 @@ export default class HelloWorld extends React.Component {
     const params = { name: this.state.currentName, location: [this.state.activeMarker.props.position.lat, this.state.activeMarker.props.position.lng] }
 
     $.post('http://localhost:3000/favorites.json', {favorite: params}, (data) => {
-      this.setState({favorites: [...this.state.favorites, params]})
+      this.setState({favorites: [...this.state.favorites, data]})
     })
   }
 
