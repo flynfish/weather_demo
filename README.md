@@ -14,8 +14,14 @@ $ docker-compose up --build
 ```
 - Open new terminal window and from weather_demo folder run:
 ```
-$ docker-compose exec web rails db:reset
-$ docker-compose exec web rails db:migrate
-$ docker-compose exec bundle && yarn
+$ docker-compose exec website rails db:reset
+$ docker-compose exec website rails db:migrate
 ```
 - visit http://localhost:3000
+
+### Design Considerations
+
+- I'd normally structure json updates in an API namespace to keep things separate from normal rails controllers
+- Chose docker so you could get things running quickly
+- Used React on the frontend
+  - I would normally break components up more than I did

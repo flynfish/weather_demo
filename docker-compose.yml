@@ -34,7 +34,7 @@ services:
 
   client:
     image: web
-    command: sh -c 'rm -rf public/webpack/development/* || true && cd client && bundle exec rake react_on_rails:locale && yarn run build:development'
+    command: sh -c 'rm -rf public/webpack/development/* || true && cd client && bundle exec rake react_on_rails:locale && yarn && yarn run build:development'
     volumes:
       - '.:/app'
     env_file:
